@@ -1,9 +1,10 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Button,Platform } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { Link } from 'expo-router';
 
 export default function HomeScreen() {
   return (
@@ -16,7 +17,8 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
+        <ThemedText type="title">Hello World!</ThemedText>
+
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
@@ -33,6 +35,9 @@ export default function HomeScreen() {
           </ThemedText>{' '}
           to open developer tools.
         </ThemedText>
+        <Link href="/details" style={styles.detailsButton}>
+          <ThemedText style={styles.detailsButtonText}> View details </ThemedText>
+        </Link>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 2: Explore</ThemedText>
@@ -70,5 +75,15 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     position: 'absolute',
+  },
+  detailsButton: {
+    marginTop: 8,
+    backgroundColor: 'rgba(255, 255, 255, 1)',
+    textAlign: 'center',
+    padding: 8,
+    borderRadius: 4,
+  },
+  detailsButtonText: {
+    color: 'rgba(0, 0, 0, 1)',
   },
 });
